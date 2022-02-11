@@ -1,10 +1,12 @@
 .header-main {
+    z-index: 3;
     transition: all ease 0.5s;
     width: 100%;
     position: fixed;
 }
 
 .header-main-black {
+    z-index: 1;
     transition: all ease 0.5s;
     width: 100%;
     position: fixed;
@@ -17,4 +19,20 @@
     justify-content: space-between;
     padding: 15px;
     padding-left: 32px;
+}
+
+.netflix_user_logo {
+    transition: all ease 0.3s;
+}
+
+.netflix_user_logo:hover {
+    transform: scale(1.2);
+}
+
+.netflix_logo {
+    transition: all ease 0.3s;
+}
+
+.netflix_logo:hover {
+    transform: scale(1.1888);
 }

@@ -28,7 +28,7 @@ const FeaturedMovie = ({ content }) => {
                 <div className="feature-horizontal">
                     <div className="content">
                         
-                        <h3>{serieName}</h3><ArrowBackIosNewIcon />
+                        <h3>{serieName}</h3>
                         <div className="info">
                             <strong style={{
                                 color: "rgb(11, 192, 65)"
