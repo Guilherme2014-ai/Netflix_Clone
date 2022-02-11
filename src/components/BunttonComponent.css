@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.button-btn {
+    margin-top: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    transform: scale(0.9);
+    transition: all ease 0.2s;
+}
+
+.button-btn:hover {
+    transform: scale(1);
+    cursor: pointer;
+}
