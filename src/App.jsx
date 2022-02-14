@@ -14,35 +14,33 @@ function App() {
   const [ featureMovieData, setfeatureMovieData] = useState(null);
   const [ blackHeader, setblackHeader ] = useState(false);
 
+  const randomArrayItem = (array) => array[Math.trunc(Math.random() * array.length-1)];
+
   useEffect(() => {
     const loadTmdbData = async () => {
       const tmdbData = await tmdbRequest.getHomeList();
-      setCategoryList(tmdbData);
+      
+      const delay = 1000;
+      setTimeout(() => setCategoryList(tmdbData), delay);
 
       //-------------------------------------------------------------------
       
       const netflixMovies = tmdbData[0]["items"];
-      const randomNum = Math.trunc(Math.random() * netflixMovies.length-1);
-      const featuredContent = netflixMovies[randomNum];
-      const contentId = featuredContent["id"];
+      const featuredContent = randomArrayItem(netflixMovies);
+      const { id: contentId } = featuredContent;
       const featuredContentCompleteInfo = await tmdbRequest.getContentById(contentId, "tv");
-      setfeatureMovieData(featuredContentCompleteInfo);
 
-      console.log(featuredContent,featuredContentCompleteInfo);
-      console.log(tmdbData);
+      setfeatureMovieData(featuredContentCompleteInfo);
     }
     loadTmdbData()
   }, [])
 
-  useEffect(() => {
+  useEffect(() => { // A cada atualização.
     function scrollListenerFunc() {
       const scrollValue = window.scrollY;
 
-      if(scrollValue > 50) {
-        setblackHeader(true);
-      } else {
-        setblackHeader(false);
-      }
+      if(scrollValue > 50) return setblackHeader(true);
+      return setblackHeader(false);
     }
 
     window.addEventListener("scroll", scrollListenerFunc);
@@ -52,19 +50,25 @@ function App() {
     };
   }, []);
 
+
   return (
     <div className="App">
       <HeaderComponent blackHeader={blackHeader}/>
       
       {
-        featureMovieData && <FeaturedMovie content={featureMovieData}/> // Interensante.
+        featureMovieData && <FeaturedMovie content={featureMovieData}/> // Retorna um valor caso true ou nada caso false.
       }
+
+
       <section className='catefories-area'>
-        {categoryList.map(category => {
-          const { title, items } = category;
-          return <CategoryComponent categoryTitle={title} categoryMovies={items} key={idUniqueV2()} />;
-        })}
+        {
+          !categoryList || categoryList.length === 0 ? <img width="600" src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" alt="Loading..." className='loading_gif' /> : categoryList.map(category => {
+            const { title, items } = category;
+            return <CategoryComponent categoryTitle={title} categoryMovies={items} key={idUniqueV2()} />;
+          })
+        }
       </section>
+      <footer>Todos Direitos de Imagens Reservados á Netflix</footer>
     </div>
   );
 }

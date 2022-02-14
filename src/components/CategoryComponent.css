@@ -5,7 +5,8 @@
 }
 
 .movies-list {
-    overflow-x: hidden;
+    transition: all ease 2s;
+    overflow: hidden;
 }
 
 .movies {
@@ -30,6 +31,7 @@
     transform: scale(1.3);
     margin-top: 50px;
     padding-top: 100px;
+    overflow: hidden;
 }
 
 .arrow:hover {

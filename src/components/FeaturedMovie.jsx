@@ -2,7 +2,6 @@ import React from "react";
 
 import tmdbConfig from "../config/tmdbConfig";
 import BunttonComponent from "./BunttonComponent";
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 
 import "./FeaturedMovie.css";
@@ -11,11 +10,15 @@ const { imagesBaseUrl } = tmdbConfig;
 
 const FeaturedMovie = ({ content }) => {
     const data = content["data"];
-    const { name: serieName, backdrop_path: imageBackground, vote_average: rating, poster_path, first_air_date, overview: sinopse, genres, seasons } = data;
+    const { name: serieName, backdrop_path: imageBackground, vote_average: rating, poster_path, first_air_date, overview: rawSinopse, genres, seasons } = data;
     const yearDate = first_air_date.split("-")[0];
 
     const numberOfSeasons = seasons.length;
     const genresOrganizeds = `${genres.map(genreObj => genreObj.name).join(" ")}`;
+
+    // Impõe Limite ao texto:
+    const textLimiter = (text, limit) => text.split("").map((value,index) => index === limit ? `${value}... SIGNAL5556694` : value).join("").split("SIGNAL5556694")[0];
+    const sinopse = textLimiter(rawSinopse, 140);
 
     return (
         <section className="featured" style={{
