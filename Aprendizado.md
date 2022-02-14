@@ -6,3 +6,8 @@
 - Z-index
 
 - Components --> Propiedades de Atualização, que pode ser explorada com a desacoplagem.
+
+
+
+- Serve só roda quando a pasta "build" esta presente.
+- Workflow
