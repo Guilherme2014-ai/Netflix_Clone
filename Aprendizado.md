@@ -19,3 +19,6 @@ O z-index é uma Tag simplesmente indispensável, onde impõe hierarquia na sobr
 
 Components - React
 Mais uma vez a visão desacoplada me mostrando detalhes escondidos... Visto que toda vez em que um "State" é atualizado todos os "components" que usam tal "State" são "Redesenhados", percebe-se que independente da onde esse "State" for atualizado os components sempre se atualizaram, isto dá muito mais flexibilidade em relação á dinâmica.
+
+
+...
