@@ -19,3 +19,10 @@ O z-index é uma Tag simplesmente indispensável, onde impõe hierarquia na sobr
 
 ## Components - React
 Mais uma vez a visão desacoplada me mostrando detalhes escondidos... Visto que toda vez em que um "State" é atualizado todos os "components" que usam tal "State" são "Redesenhados", percebe-se que independente da onde esse "State" for atualizado os components sempre se atualizaram, isto dá muito mais flexibilidade em relação á dinâmica.
+
+
+## Git Actions
+O Github Actions pode ser interpretado como um hook do github, no qual pode fazer determinadas ações quando certos eventos são chamados, por exemplo, eu posso pedir para que quando o repositório receba um push na branch main ele sempre execute o comando:  `npm run build`
+
+## Git RM
+Quando se tem um arquivo já "comitado" porem necessitasse de colocá-lo na pasta ".gitignore", o comando "git rm --cached "file" -r" servirá para retirá-lo do commit, assim podendo ser adicionado no gitignore
