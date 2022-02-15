@@ -1,9 +1,0 @@
-name: deploy
-
-on:
-  push:
-    branches:
-      - master
-
-- name: Deploy_Job
-  uses: peaceiris/actions-gh-pages@v3
