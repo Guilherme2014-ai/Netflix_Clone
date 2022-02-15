@@ -29,9 +29,7 @@ const CategoryComponent = ({ categoryTitle, categoryMovies }) => {
         
         setCurrentLimit(currentLimit-1);
         setPositionMovies(decreaseValue);
-    }    
-    
-    // Desenvolver lógica do limite.
+    }
 
     return (
         <div className="category">
@@ -49,7 +47,7 @@ const CategoryComponent = ({ categoryTitle, categoryMovies }) => {
             }}>
                 <div className="movies">
                     { categoryMovies.map(movie => {
-                        const { name: movieName, title: movieTitle, poster_path: imagePosterImage_path } = movie;
+                        const { poster_path: imagePosterImage_path } = movie;
                         const imageSize = 200;
                         const imageSizeUrl = "w200";
 
